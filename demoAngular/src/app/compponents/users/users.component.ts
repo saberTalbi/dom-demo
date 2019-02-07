@@ -6,14 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  name:string;
-  age:number;
-  email:string;
-  address:Address;
+  name:string='';
+  age:number=null;
+  email:string='';
+  address:Address={
+    city:'',
+    state:'',
+    street:''
+  };
   hobbies:string[];
   hello:any;
   isEdit:boolean = false;
-
+  password:string;
   constructor() {
     console.log('constructor ran..');
   }
@@ -21,21 +25,15 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit ran...');
 
-    this.name = 'Sabeur Talbi';
-    this.email = 'talbiisaber@gmail.com';
-    this.age = 25;
-    this.address = {
-      street:'50 Main st',
-      city: 'Tunis',
-      state:'CE'
-    }
+   // this.name = 'Sabeur Talbi';
+   // this.email = 'talbiisaber@gmail.com';
+   // this.age = 25;
+   // this.address = {
+   //   street:'50 Main st',
+   //   city: 'Tunis',
+   //   state:'CE'
+   // }
     this.hobbies = ['Write code', 'Watch movies', 'Listen to music'];
-    this.hello ='hello';
-
-   /* this.dataService.getPosts().subscribe((posts) => {
-      //console.log(posts);
-      this.posts = posts;
-    });*/
   }
 
   onClick(){
@@ -44,8 +42,8 @@ export class UsersComponent implements OnInit {
 
   addHobby(hobby){
     console.log(hobby);
-    this.hobbies.unshift(hobby);//ajout au debut
-    //this.hobbies.push(hobby);//ajout a la fin de la list
+    this.hobbies.unshift(hobby);//add in the first element of the list
+    //this.hobbies.push(hobby);//add in the end of list
     return false;
   }
 
@@ -65,10 +63,10 @@ interface Address{
   city:string,
   state:string
 }
-
+/*
 interface Post{
   id: number,
   title:string,
   body:string,
   userId:number
-}
+}*/

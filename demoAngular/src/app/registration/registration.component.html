@@ -1,0 +1,26 @@
+<br><br><br><br>
+
+<li>Email: {{email}}</li>
+<li>Password: {{password}}</li>
+<form action="submit">
+  <div>
+    <label for="email">name: </label><br>
+    <input type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div>    
+      <label for="adress">adress: </label><br>
+      <input type="text" [(ngModel)]="adress" name="adress">
+  </div>
+  <div>    
+      <label for="email">Email: </label><br>
+      <input type="text" [(ngModel)]="email" name="email">
+    </div>
+    <div>    
+        <label for="password">password: </label><br>
+        <input type="text" [(ngModel)]="password" name="password">
+    </div>
+    <div>    
+        <label for="password">password: </label><br>
+        <input type="text" [(ngModel)]="passwordVerification" name="password">
+      </div>
+  </form>

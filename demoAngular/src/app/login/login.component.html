@@ -1,0 +1,16 @@
+<br><br><br><br>
+<li>Email: {{email}}</li>
+<li>Password: {{password}}</li>
+<form (submit)="loginUser($event)">
+  <div>
+    <label for="email">Email: </label><br>
+    <input type="text" [(ngModel)]="email" name="email">
+  </div>
+  <div>    
+    <label for="password">password: </label><br>
+    <input type="text" [(ngModel)]="password" name="password">
+  </div>
+  <div>    
+      <input type="submit" value="Submit">
+  </div>
+  </form>
