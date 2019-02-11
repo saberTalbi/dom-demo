@@ -66,4 +66,10 @@ import com.example.demo.entities.User;
 	        model.addAttribute("users", userDao.findAll());
 	        return "index";
 	    }
+	    @GetMapping("")
+	    public String index( Model model) {
+	        model.addAttribute("users", userDao.findAll());
+	    	return "index"; 
+	    }
 	}
+	

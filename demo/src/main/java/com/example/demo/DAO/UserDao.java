@@ -12,4 +12,6 @@ import com.example.demo.entities.User;
 @Repository
 public interface UserDao extends CrudRepository<User, Integer>{
 	 List<User> findByName(String name);
+	 User findByEmail(String email);
+	 User findByEmailAndPassword(String email,String password);
 }

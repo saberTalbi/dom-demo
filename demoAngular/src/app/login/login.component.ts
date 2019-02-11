@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { EmailValidator } from '@angular/forms';
+import { Component, OnInit,NgModule } from '@angular/core';
+import {NgForm} from '@angular/forms'
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,16 @@ export class LoginComponent implements OnInit {
   email:string;
   password:string;
 
-  constructor() { 
+  constructor(private login:LoginServiceService) { 
     this.password='';
     this.email='';
   }
-  
+
   ngOnInit() {
 
   }
 
+loginUser(f){
+  this.login.verifAuth(f.value['email'],f.value['password'])
+}
 }
