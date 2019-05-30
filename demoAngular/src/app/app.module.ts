@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
 import { LoginServiceService } from './login-service.service';
 import { MainComponent } from './main/main.component';
+import { CompareValidatorDirective } from './shared/compare-validator.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { MainComponent } from './main/main.component';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    MainComponent
+    MainComponent,
+    CompareValidatorDirective
    
 
   ],

@@ -1,9 +1,11 @@
 package com.example.demo.controllers;
 
-public class loginModel {
+import java.io.Serializable;
+
+public class LoginModel implements Serializable{
  public String login;
  public String password;
- public loginModel() {
+ public LoginModel() {
 	 
  }
 public String getLogin() {

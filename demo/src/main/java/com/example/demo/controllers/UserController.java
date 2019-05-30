@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.DAO.UserDao;
-import com.example.demo.entities.User;
+import com.example.demo.dao.UserDao;
+import com.example.demo.entities.UserEntity;
 
 
 	@Controller
@@ -25,12 +25,12 @@ import com.example.demo.entities.User;
 	    }
 	    
 	    @GetMapping("/signup")
-	    public String showSignUpForm(User user) {
+	    public String showSignUpForm(UserEntity user) {
 	        return "add-user";
 	    }
 	    
 	    @PostMapping("/adduser")
-	    public String addUser(@Valid User user, BindingResult result, Model model) {
+	    public String addUser(@Valid UserEntity user, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
 	            return "add-user";
 	        }
@@ -42,13 +42,13 @@ import com.example.demo.entities.User;
 	    
 	    @GetMapping("/edit/{id}")
 	    public String showUpdateForm(@PathVariable("id") long id, Model model) {
-	        User user = userDao.findById((int) id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+	        UserEntity user = userDao.findById((int) id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 	        model.addAttribute("user", user);
 	        return "update-user";
 	    }
 	    
 	    @PostMapping("/update/{id}")
-	    public String updateUser(@PathVariable("id") int id, @Valid User user, BindingResult result, Model model) {
+	    public String updateUser(@PathVariable("id") int id, @Valid UserEntity user, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
 	            user.setId(id);
 	            return "update-user";
@@ -61,7 +61,7 @@ import com.example.demo.entities.User;
 	    
 	    @GetMapping("/delete/{id}")
 	    public String deleteUser(@PathVariable("id") int id, Model model) {
-	        User user = userDao.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+	        UserEntity user = userDao.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 	        userDao.delete(user);
 	        model.addAttribute("users", userDao.findAll());
 	        return "index";

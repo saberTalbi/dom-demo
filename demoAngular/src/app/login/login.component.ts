@@ -8,8 +8,8 @@ import { LoginServiceService } from '../login-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email:string;
-  password:string;
+  email:String;
+  password:String;
 
   constructor(private login:LoginServiceService) { 
     this.password='';
@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
 loginUser(f){
-  this.login.verifAuth(f.value['email'],f.value['password'])
+  this.login.verifAuth(f.value['email'],f.value['password']);
 }
 }
